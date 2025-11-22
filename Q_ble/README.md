@@ -13,44 +13,26 @@ An iOS app that finds nearby Bluetooth devices and lets you send messages to the
 4. Allow Bluetooth permission when asked
 
 ### Finding Devices
+![](https://github.com/yaelbe/Q/blob/main/screens/Screenshot%202025-11-22%20at%2023.10.00.png)
 1. Tap "Start Scanning"
 2. Wait for devices to appear in the list
 3. Devices are sorted by signal strength (closest first)
 
 ### Connecting
+![](https://github.com/yaelbe/Q/blob/main/screens/Screenshot%202025-11-22%20at%2023.10.05.png)
+
 1. Tap on a device (look for "BLE Peer" or devices without warning icons)
 2. Wait for connection
 3. Start sending messages!
 
 ### Sending Messages
+![](https://github.com/yaelbe/Q/blob/main/screens/Screenshot%202025-11-22%20at%2023.10.24.png)
+
 1. Type your message
 2. Tap the send button or press Return
 3. Messages appear in the chat with timestamps
 
-## 📱 Screenshots
-
-### Main Screen - Device Discovery
-![Device Discovery Screen](Screenshots/device_discovery.png)
-The main screen shows:
-- Start/Stop scanning button
-- List of nearby Bluetooth devices
-- Signal strength for each device
-
-### Device List
-![Device List Screen](Screenshots/device_list.png)
-When scanning, you'll see:
-- All nearby Bluetooth devices
-- Which devices you can connect to
-- Signal strength (green = strong, red = weak)
-
-### Chat Screen
-![Connection Screen](Screenshots/device_connection.png)
-After connecting, you can:
-- See device information
-- Send and receive messages
-- View message history
-
-## ✨ Features
+## Features
 
 - Find nearby Bluetooth devices
 - See signal strength for each device
@@ -58,13 +40,8 @@ After connecting, you can:
 - Send and receive text messages
 - Chat-like interface with message history
 
-## 📋 Requirements
 
-- iPhone or iPad with iOS 14.0 or later
-- Physical device (simulator doesn't support Bluetooth)
-- Bluetooth enabled on your device
-
-## 🔗 Peer Device
+## Peer Device
 
 To test the app, you need the macOS PeerDevice app running:
 - See `../PeerDevice/README.md` for setup
@@ -87,13 +64,5 @@ To test the app, you need the macOS PeerDevice app running:
 - Make sure messages are under 512 characters
 - Verify PeerDevice is running
 
-## 📁 Files
 
-- `DeviceListView.swift` - Main screen with device list
-- `DeviceConnectionView.swift` - Chat screen
-- `BluetoothManager.swift` - Handles all Bluetooth operations
-- `DiscoveredDevice.swift` - Device information model
 
----
-
-**Note**: This app needs a real iPhone or iPad. Bluetooth doesn't work in the simulator.
