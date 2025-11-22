@@ -42,7 +42,7 @@ struct PeerDeviceApp: App {
             
             // Activate the existing instance and quit this one
             if let existingInstance = otherInstances.first {
-                existingInstance.activate(options: [.activateAllWindows, .activateIgnoringOtherApps])
+                existingInstance.activate(options: [.activateAllWindows])
             }
             
             // Quit this instance

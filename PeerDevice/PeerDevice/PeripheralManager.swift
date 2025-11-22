@@ -189,10 +189,7 @@ extension PeripheralManager: CBPeripheralManagerDelegate {
                 self.lastError = "Error adding service: \(error.localizedDescription)"
             }
         } else {
-            // Now that service is added, start advertising
-            // Note: Advertisement data is limited to 28 bytes total
             // Service UUID takes ~16 bytes, so local name must be short
-            // "BLE Peer" (8 bytes) fits better than "BLE Peer Device" (16 bytes)
             let advertisementData: [String: Any] = [
                 CBAdvertisementDataLocalNameKey: "BLE Peer",  // Shorter name to fit within 28-byte limit
                 CBAdvertisementDataServiceUUIDsKey: [PeripheralManager.serviceUUID]
@@ -218,9 +215,7 @@ extension PeripheralManager: CBPeripheralManagerDelegate {
         DispatchQueue.main.async {
             self.connectedCentral = central
             self.isConnected = true
-            
-            // Stop advertising once connected to save power
-            // Connection is established, no need to advertise anymore
+           
             if self.isAdvertising {
                 self.peripheralManager.stopAdvertising()
                 self.isAdvertising = false
@@ -232,9 +227,8 @@ extension PeripheralManager: CBPeripheralManagerDelegate {
         DispatchQueue.main.async {
             self.connectedCentral = nil
             self.isConnected = false
-            self.messages.removeAll() // Clear messages on disconnect
+            self.messages.removeAll()
             
-            // Restart advertising when disconnected to allow reconnection
             if !self.isAdvertising && self.peripheralManager.state == .poweredOn {
                 self.startAdvertising()
             }
@@ -243,8 +237,6 @@ extension PeripheralManager: CBPeripheralManagerDelegate {
     
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
         for request in requests {
-            // Always respond, even if it's not our characteristic
-            // Check if this is our characteristic
             if request.characteristic.uuid == PeripheralManager.characteristicUUID {
                 if let value = request.value,
                    let message = String(data: value, encoding: .utf8) {

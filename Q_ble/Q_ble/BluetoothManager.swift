@@ -96,7 +96,6 @@ class BluetoothManager: NSObject, ObservableObject {
         updateTimer?.invalidate()
         updateTimer = nil
         
-        // Perform final update to ensure UI is current
         performBatchUpdate()
     }
     
@@ -125,7 +124,6 @@ class BluetoothManager: NSObject, ObservableObject {
             return
         }
         
-        // Validate message length (BLE MTU limit)
         guard message.count <= BluetoothConstants.maxMessageLength else {
             lastError = "Message too long (max \(BluetoothConstants.maxMessageLength) characters)"
             return
@@ -289,7 +287,7 @@ extension BluetoothManager: CBPeripheralDelegate {
         }
     }
     
-    // Detect when peripheral removes services (e.g., when PeerDevice restarts advertising)
+    // Detect when peripheral removes services 
     func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
         // Check if our service was removed
         let ourServiceRemoved = invalidatedServices.contains { $0.uuid == BluetoothManager.serviceUUID }
