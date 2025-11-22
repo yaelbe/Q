@@ -35,7 +35,7 @@ A macOS app that acts as a BLE peripheral for testing the iOS app.
    - Click "Start Advertising"
    - Your iPhone will discover it
 
-## ✨ Features
+## Features
 
 - Real-time BLE device scanning
 - RSSI-based device sorting
@@ -44,19 +44,6 @@ A macOS app that acts as a BLE peripheral for testing the iOS app.
 - Auto-disconnect handling
 - Clean MVVM architecture
 
-## 📋 Requirements
-
-- iOS 14.0+ (for iOS app)
-- macOS 11.0+ (for PeerDevice)
-- Xcode 12.0+
-- Physical iOS device (simulator doesn't support Bluetooth)
-
-## 🔧 Technical Details
-
-- **Service UUID:** `12345678-1234-1234-1234-123456789ABC`
-- **Characteristic UUID:** `12345678-1234-1234-1234-123456789DEF`
-- **Architecture:** MVVM with SwiftUI
-- **BLE Framework:** CoreBluetooth
 
 ## 📁 Repository Structure
 
