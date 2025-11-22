@@ -71,9 +71,3 @@ Q/
 └── README.md          # This file
 ```
 
-## 📝 Documentation
-
-- [iOS App README](Q_ble/README.md)
-- [macOS App README](PeerDevice/README.md)
-- [Code Review Summary](CODE_REVIEW_SUMMARY.md)
-- [Repository Structure](REPOSITORY_STRUCTURE.md)
