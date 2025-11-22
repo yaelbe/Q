@@ -13,6 +13,8 @@ A macOS app that acts as a Bluetooth device that your iPhone can connect to and 
 4. Allow Bluetooth permission when asked
 
 ### Starting Advertising
+![](https://github.com/yaelbe/Q/blob/main/screens/PeerDevice.jpg)
+
 1. Open the PeerDevice app
 2. Wait for "Bluetooth is ready" (green indicator)
 3. Click "Start Advertising"
